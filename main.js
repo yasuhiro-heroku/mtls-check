@@ -20,14 +20,11 @@ app.get('/connect',(req,res) => {
     client.connect();
     let result = "";
     client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-      if (err){
-        result = "error";
-      }else{
-        for (let row of res.rows) {
-          result += JSON.stringify(row);
-        }
-      }
-      client.end();
+     if (err) throw err;
+     for (let row of res.rows) {
+       result += JSON.stringify(row);
+     }
+     client.end();
     });
     res.send(result);
 })
