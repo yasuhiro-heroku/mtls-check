@@ -2,8 +2,9 @@
   "name": "mtls-check",
   "version": "1.0.0",
   "description": "postgres connection to Heroku Database",
-  "main": "connect.js",
+  "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/yasuhiro-heroku/mtls-check#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "pg": "^8.8.0"
   }
 }

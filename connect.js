@@ -1,5 +1,9 @@
+/**
+ * How to establish Heroku Postgres connection ?
+ */
+
 const { Client } = require('pg');
-// console.log('The value of PORT is:', process.env.DATABASE_URL);
+console.log('The value of PORT is:', process.env.DATABASE_URL);
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
