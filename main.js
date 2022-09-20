@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 3000
+//Heroku way
+const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
  */
 app.get('/connect',(req,res) => {
     const { Client } = require('pg');
+    //Heroku way, too.
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
       ssl: {
