@@ -1,0 +1,25 @@
+{
+  "name": "mtls-check",
+  "version": "1.0.0",
+  "description": "postgres connection to Heroku Database",
+  "main": "connect.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasuhiro-heroku/mtls-check.git"
+  },
+  "keywords": [
+    "mtls"
+  ],
+  "author": "Yasuhiro Miyake",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasuhiro-heroku/mtls-check/issues"
+  },
+  "homepage": "https://github.com/yasuhiro-heroku/mtls-check#readme",
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
+}
