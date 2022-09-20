@@ -15,9 +15,18 @@ app.get('/connect',(req,res) => {
     //Heroku way, too.
     const client = new Client({
       connectionString: process.env.DATABASE_URL,
+      // this part is very important for mTLS connection
+      // these files are downloaded from Heroku by following this step: https://devcenter.heroku.com/ja/articles/heroku-postgres-via-mtls
+      // Because, mTLS on Heroku requires mainly 2 steps
+      // Adding whitelist on Heroku database
+      // Generating necessary certificate files for clients
+      // Therefore, before coding this part you should generate your certificate
       ssl: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: false,
+        ca: fs.readFileSync(process.env.ROOTCA).toString(),
+        key: fs.readFileSync(process.env.POSTGRESKEY).toString(),
+        cert: fs.readFileSync(process.env.POSTGRESCA).toString(),
+      },
     });
     client.connect();
     let result = "";
