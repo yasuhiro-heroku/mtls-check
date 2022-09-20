@@ -23,9 +23,9 @@ app.get('/connect',(req,res) => {
       // Therefore, before coding this part you should generate your certificate
       ssl: {
         rejectUnauthorized: false,
-        ca: fs.readFileSync(process.env.ROOTCA).toString(),
-        key: fs.readFileSync(process.env.POSTGRESKEY).toString(),
-        cert: fs.readFileSync(process.env.POSTGRESCA).toString(),
+        ca: process.env.ROOTCA,
+        key: process.env.POSTGRESKEY,
+        cert: process.env.POSTGRESCA,
       },
     });
     client.connect();
